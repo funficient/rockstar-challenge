@@ -1,0 +1,278 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rufina:wght@400;700&display=swap');
+
+:root {
+  --tangerine: #f5c325;
+  --orange: #fc9745;
+  --grapefruit: #ff7348;
+  --straweberry: #fd5a5c;
+  --dragonfruit: #f2456f;
+  --gradient: linear-gradient(90deg, #fc9745, #ff7348);
+
+  --darkseagreen: #007982;
+  --lightseagreen: #6DB9C2;
+
+  --darkGray: #5d5c5c;
+  --lightGray: #fcfcfc;
+}
+
+*,
+*::before,
+*::after {
+  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  font: inherit;
+}
+
+* {
+margin: 0;
+padding: 0;
+}
+
+html, body {
+  height: 100%;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  line-height: 1.2;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+input, button, textarea, select {
+  font: inherit;
+}
+
+h1, h2, h3, h4, p {
+  overflow-wrap: break-word;
+}
+
+h1 {
+  font-family: "Rufina", sans-serif;
+  font-size: 4em;
+  line-height: 1.3em;
+}
+
+h2 {
+  font-family: "Rufina", sans-serif;
+  font-size: 2rem;
+  line-height: 2.3rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid white;
+  margin-bottom: 2rem;
+}
+
+h3 {
+  font-weight: 400;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #bbbbbb;
+}
+
+h4 {
+  color: #333;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+p {
+  font-weight: 200;
+  font-size: 1.1rem;
+  line-height: 1.3em;
+  margin-top: 0.5rem;
+}
+
+/*p + p {
+  margin-top: 2rem;
+}*/
+
+li,
+a,
+button {
+  font-weight: 500;
+  text-decoration: none;
+}
+
+i {
+  color: white;
+  padding: 0.5rem;
+}
+
+
+/*  ----------------------------------------------------------Utility elements ----------------------------------------------------------------------------------------*/
+
+.container {
+  width: 100vw;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button {
+  display: inline-block;
+  padding: 10px 30px;
+  background-color: #f5c325;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 5px;
+  margin-top: 25px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+  transition: all ease-in-out 0.02s;
+}
+
+.button:hover {
+  transform: scale(0.98);
+}
+
+/*.button::before {
+  
+  font-family: "Font Awesome 5 Free";
+font-weight: 400;
+content: "\f074";
+display: inline-block;
+margin-right: 0.5rem;
+font-style: normal;
+font-variant: normal;
+text-rendering: auto;
+}
+
+
+/*  ---------------------------------------------------------- Showcase ----------------------------------------------------------------------------------------*/
+
+.showcase {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.image-container {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  /*background: #333 url(assets/zara.jpg) no-repeat center center/cover;*/
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+.image-container img {
+  width: 100vw;
+  height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  object-fit: cover;
+  
+  
+}
+
+.card {
+  z-index: 10;
+  background-color: rgba(51, 51, 51, 0.6);
+  backdrop-filter: blur(5px);
+  padding: 2rem;
+  color: #fcfcfc;
+  width: min(90vw, 600px); 
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+
+.sticky {
+  position: fixed;
+  right: 0;
+  top: 40%;
+  overflow: none;
+}
+
+.sticky i {
+  display: flex;
+  flex-direction: row;
+  background-color: rgb(245, 195, 37, 1);
+  padding: 1.2rem;
+  font-size: 1.7rem;
+
+}
+.line {
+  background-color: rgb(51, 51, 51, 0.6);
+  height: 2px;
+}
+
+.sticky a {
+  position: relative;
+}
+
+.sticky a::before,
+.sticky a::after {
+  --scale: 0;
+  --arrow-size: 10px;
+
+  position: absolute;
+  top: -.25rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(var(--translate-y, 0)) scale(var(--scale));
+  transition: transform 50ms;
+  transform-origin: bottom center;
+}
+
+.sticky a::before {
+  --translate-y: calc(-100% - var(--arrow-size));
+
+  content: attr(data-tooltip);
+  background: rgb(51, 51, 51, 0.6);
+  color: #fff;
+  padding: 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 300;
+  border-radius: .3rem;
+  text-align: center;
+  width: max-content;
+}
+
+.sticky a:hover:before,
+.sticky a:hover:after {
+  --scale: 1;
+}
+
+.sticky a::after {
+  --translate-y: calc(-1 * var(--arrow-size));
+
+  content: '';
+  width: 10px;
+  height: 10px;
+  border: var(--arrow-size) solid transparent;
+  border-top-color: rgb(51, 51, 51, 0.6);
+  
+}
+
+
+
+
+
+/*  ----------------------------------------------------------Responsive ----------------------------------------------------------------------------------------*/
+
+
+@media only screen and (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    margin-top: 10px;
+  }
+
+}
+
+/*  ----------------------------------------------------------End ----------------------------------------------------------------------------------------*/
